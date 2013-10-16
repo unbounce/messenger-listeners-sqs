@@ -1,4 +1,3 @@
-require "messenger/listeners/sqs_listener/version"
 
 module Messenger
   module Listeners

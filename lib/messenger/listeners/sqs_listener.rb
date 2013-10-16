@@ -2,7 +2,7 @@ require "messenger/listeners/sqs_listener/version"
 
 module Messenger
   module Listeners
-    module SqsListener
+    class SqsListener
 
       class << self
         attr_accessor :config

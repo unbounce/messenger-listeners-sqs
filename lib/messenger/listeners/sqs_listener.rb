@@ -1,4 +1,3 @@
-
 module Messenger
   module Listeners
     class SqsListener

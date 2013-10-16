@@ -12,7 +12,7 @@ module Messenger
           end
 
           def copy_initializer
-            template 'messenger.rb.erb', 'config/initializers/messenger.rb'
+            template 'messenger-listeners-sqs.rb.erb', 'config/initializers/messenger-listeners-sqs.rb'
           end
 
         end

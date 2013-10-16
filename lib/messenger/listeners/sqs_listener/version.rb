@@ -1,6 +1,6 @@
 module Messenger
   module Listeners
-    module Sqs
+    module SqsListener
       VERSION = "0.0.1"
     end
   end

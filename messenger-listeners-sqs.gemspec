@@ -6,6 +6,7 @@ require 'messenger/listeners/sqs_listener/version'
 Gem::Specification.new do |spec|
   spec.name          = 'messenger-listeners-sqs'
   spec.version       = Messenger::Listeners::SqsListener::VERSION
+  spec.platform      = Gem::Platform::RUBY
   spec.authors       = ["James Brennan"]
   spec.email         = ["james@jamesbrennan.ca"]
   spec.description   = 'A messenger listener that polls AWS SQS.'

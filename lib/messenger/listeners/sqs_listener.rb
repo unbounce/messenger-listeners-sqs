@@ -56,7 +56,7 @@ class Messenger
                                            visibility_timeout: self.class.config.visibility_timeout
                                          })
 
-          Messenger::Worker.work message.body
+          Messenger.work message.body
 
           # Remove the message now that we're done.
           @sqs.delete_message({ queue_url:      self.class.config.queue_url,

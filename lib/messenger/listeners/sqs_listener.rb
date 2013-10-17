@@ -10,7 +10,7 @@ class Messenger
 
       def initialize
         @sqs = AWS::SQS::Client.new
-        @listening = true;
+        @listening = true
       end
 
       def self.configure

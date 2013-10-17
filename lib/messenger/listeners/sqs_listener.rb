@@ -1,6 +1,8 @@
-module Messenger
+class Messenger
   module Listeners
     class SqsListener
+
+      attr_accessor :listening
 
       class << self
         attr_accessor :config

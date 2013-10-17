@@ -1,4 +1,4 @@
-module Messenger
+class Messenger
   module Listeners
     class SqsListener
       VERSION = "0.0.1"

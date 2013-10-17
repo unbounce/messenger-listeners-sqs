@@ -8,7 +8,7 @@ and passes them to the active worker.
 Add this line to your application's Gemfile:
 
   ```Ruby
-  gem 'messenger-listeners-sqs', git: 'https://github.com/unbounce/messenger-listeners-sqs'
+  gem 'messenger-listeners-sqs', git: 'git@github.com:unbounce/messenger-listeners-sqs.git'
   ```
 
 And then execute:

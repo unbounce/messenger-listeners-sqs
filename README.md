@@ -1,29 +1,42 @@
-# Messenger::Listeners::Sqs
+# Messenger SQS Listener
 
-TODO: Write a gem description
+The [Messenger](https://github.com/unbounce/messenger) SQS Listener polls SQS for messages
+and passes them to the active worker.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'messenger-listeners-sqs'
+  ```Ruby
+  gem 'messenger-listeners-sqs', git: 'https://github.com/unbounce/messenger-listeners-sqs'
+  ```
 
 And then execute:
 
-    $ bundle
+  ```
+  $ bundle
+  ```
 
-Or install it yourself as:
+### Configuration
 
-    $ gem install messenger-listeners-sqs
+You must set which listener and worker the messenger will use. To create a configuration
+file in your application, run `rails g messenger-listeners-sqs:install`. Set the appropriate
+queue url and any other options.
+
+  ```Ruby
+  # Example config/initializers/messenger-listeners-sqs.rb
+
+  Messenger::Listeners::SqsListener.configure do |config|
+    config.queue_url = 'https://some-sqs-queue-url'
+    # config.batch_size = 10
+    # config.visibility_timeout = 10
+    # config.wait_time = 20
+  end
+  ```
+
+Your messenger must also be set to use this listener, so in `config/initializers/messenger.rb`
+set `config.listener_type = :sqs`.
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+See [Messenger's README](https://github.com/unbounce/messenger/blob/master/README.md).

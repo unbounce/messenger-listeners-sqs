@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sqs.us-west-1.amazonaws.com/002682819933/poller-test
+    body:
+      encoding: US-ASCII
+      string: Action=ReceiveMessage&MaxNumberOfMessages=10&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F002682819933%2Fpoller-test&Timestamp=2013-10-18T21%3A02%3A06Z&Version=2012-11-05&VisibilityTimeout=10&WaitTimeSeconds=20
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      Content-Length:
+      - '218'
+      User-Agent:
+      - aws-sdk-ruby/1.21.0 jruby/1.9.3 java
+      Host:
+      - sqs.us-west-1.amazonaws.com
+      X-Amz-Date:
+      - 20131018T210206Z
+      X-Amz-Content-Sha256:
+      - 79370946ef5d7d111480220827812853abe0e65ab6a9781670a2e28b0f89e36e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAJSVPFAXQAOMWDVJQ/20131018/us-west-1/sqs/aws4_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=1e00980e01fe712932090b5bb4af5b16f38c71adb4ca188b5149378541164cc8
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Server
+      Date:
+      - Fri, 18 Oct 2013 21:02:08 GMT
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '905'
+      Connection:
+      - keep-alive
+      X-Amzn-Requestid:
+      - 5341470b-600f-5d6c-833f-0dd0c41fb43f
+    body:
+      encoding: US-ASCII
+      string: |-
+        <?xml version="1.0"?><ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ReceiveMessageResult><Message><Body>{
+          &quot;type&quot;:&quot;PageBundlerImportV1.0&quot;,
+          &quot;user_id:1,
+          &quot;company_id&quot;:3,
+          &quot;uri&quot;:&quot;https://s3.aws.com/some_archive&quot;
+        }</Body><ReceiptHandle>E1YD3g9WPkc+dE7BJ10vnXXn5DlEPJ/mXXrR2j+80qHnitCZbm+Vf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk+YMlQ0WsqrtVMcmpmJiE/v4v8+x42c9fcm9dydsmEyWGPmrSpOADT8A01D9a+c45duGLm0l3XvXHQv2o/vhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX+q31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml/NDgsrj5BVI3eFFcISI+l7VJ8w8eDJFsSqccfzY=</ReceiptHandle><MD5OfBody>2904207c2b90e44420e67d7b92b9bdbd</MD5OfBody><MessageId>aba6498c-9506-4d97-90c5-6058a6e36525</MessageId></Message></ReceiveMessageResult><ResponseMetadata><RequestId>5341470b-600f-5d6c-833f-0dd0c41fb43f</RequestId></ResponseMetadata></ReceiveMessageResponse>
+    http_version:
+  recorded_at: Fri, 18 Oct 2013 21:02:08 GMT
+- request:
+    method: post
+    uri: https://sqs.us-west-1.amazonaws.com/002682819933/poller-test
+    body:
+      encoding: US-ASCII
+      string: Action=ChangeMessageVisibility&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F002682819933%2Fpoller-test&ReceiptHandle=E1YD3g9WPkc%2BdE7BJ10vnXXn5DlEPJ%2FmXXrR2j%2B80qHnitCZbm%2BVf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk%2BYMlQ0WsqrtVMcmpmJiE%2Fv4v8%2Bx42c9fcm9dydsmEyWGPmrSpOADT8A01D9a%2Bc45duGLm0l3XvXHQv2o%2FvhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX%2Bq31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml%2FNDgsrj5BVI3eFFcISI%2Bl7VJ8w8eDJFsSqccfzY%3D&Timestamp=2013-10-18T21%3A02%3A09Z&Version=2012-11-05&VisibilityTimeout=10
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      Content-Length:
+      - '526'
+      User-Agent:
+      - aws-sdk-ruby/1.21.0 jruby/1.9.3 java
+      Host:
+      - sqs.us-west-1.amazonaws.com
+      X-Amz-Date:
+      - 20131018T210209Z
+      X-Amz-Content-Sha256:
+      - edc844a9ec9bbd93db48b72ba59b87f2e236acc017eb78103bd5750449c36f89
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAJSVPFAXQAOMWDVJQ/20131018/us-west-1/sqs/aws4_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=09feb70457113b7a77a990e8fb6eed15dcdbf9b85dde58440467f12b6bfce6b2
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Server
+      Date:
+      - Fri, 18 Oct 2013 21:02:09 GMT
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '235'
+      Connection:
+      - keep-alive
+      X-Amzn-Requestid:
+      - 548ef598-b04a-5ade-83b6-bf43145b4b91
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0"?><ChangeMessageVisibilityResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ResponseMetadata><RequestId>548ef598-b04a-5ade-83b6-bf43145b4b91</RequestId></ResponseMetadata></ChangeMessageVisibilityResponse>
+    http_version:
+  recorded_at: Fri, 18 Oct 2013 21:02:09 GMT
+- request:
+    method: post
+    uri: https://sqs.us-west-1.amazonaws.com/002682819933/poller-test
+    body:
+      encoding: US-ASCII
+      string: Action=DeleteMessage&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F002682819933%2Fpoller-test&ReceiptHandle=E1YD3g9WPkc%2BdE7BJ10vnXXn5DlEPJ%2FmXXrR2j%2B80qHnitCZbm%2BVf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk%2BYMlQ0WsqrtVMcmpmJiE%2Fv4v8%2Bx42c9fcm9dydsmEyWGPmrSpOADT8A01D9a%2Bc45duGLm0l3XvXHQv2o%2FvhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX%2Bq31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml%2FNDgsrj5BVI3eFFcISI%2Bl7VJ8w8eDJFsSqccfzY%3D&Timestamp=2013-10-18T21%3A02%3A09Z&Version=2012-11-05
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      Content-Length:
+      - '495'
+      User-Agent:
+      - aws-sdk-ruby/1.21.0 jruby/1.9.3 java
+      Host:
+      - sqs.us-west-1.amazonaws.com
+      X-Amz-Date:
+      - 20131018T210209Z
+      X-Amz-Content-Sha256:
+      - 9871ef0639440dbedcceb566d657374685f59fe17a0b2286739ff5db307598ed
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAJSVPFAXQAOMWDVJQ/20131018/us-west-1/sqs/aws4_request, SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=cddd5545b1436d01c74c150f122b39d4b50ee55acf555d7734dbb4c1f87274d3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Server
+      Date:
+      - Fri, 18 Oct 2013 21:02:10 GMT
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '215'
+      Connection:
+      - keep-alive
+      X-Amzn-Requestid:
+      - 41df4efd-6406-5898-9bf2-0426c0149dcd
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0"?><DeleteMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ResponseMetadata><RequestId>41df4efd-6406-5898-9bf2-0426c0149dcd</RequestId></ResponseMetadata></DeleteMessageResponse>
+    http_version:
+  recorded_at: Fri, 18 Oct 2013 21:02:10 GMT
+recorded_with: VCR 2.6.0

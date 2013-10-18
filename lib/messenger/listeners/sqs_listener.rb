@@ -1,3 +1,5 @@
+require 'aws-sdk'
+
 class Messenger
   module Listeners
     class SqsListener

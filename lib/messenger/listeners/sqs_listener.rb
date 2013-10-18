@@ -12,6 +12,8 @@ class Messenger
       end
 
       def initialize
+        self.class.configure {} if self.class.config.nil?
+
         @sqs = AWS::SQS::Client.new
         @listening = true
       end

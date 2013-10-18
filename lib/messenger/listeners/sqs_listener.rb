@@ -33,19 +33,24 @@ class Messenger
         end
       end
 
-      def listen
-        while @listening do
-          messages = receive_messages
+      class MissingConfigurationParameterError < StandardError; end
 
+      def listen
+        # Use `begin ... end while` so that `@listening` can be set to false and we'll just
+        # poll SQS once.
+        begin
+          messages = receive_messages
           messages.each do |message|
             submit_message message
           end unless messages.empty?
-        end
+        end while @listening
       end
 
       private
 
         def receive_messages
+          ensure_valid_queue_url
+
           response = @sqs.receive_message({ queue_url:              self.class.config.queue_url,
                                             max_number_of_messages: self.class.config.batch_size,
                                             visibility_timeout:     self.class.config.visibility_timeout,
@@ -69,6 +74,12 @@ class Messenger
           @sqs.delete_message({ queue_url:      self.class.config.queue_url,
                                 receipt_handle: message.receipt_handle
                               })
+        end
+
+        def ensure_valid_queue_url
+          if self.class.config.queue_url.to_s.empty?
+            raise MissingConfigurationParameterError.new 'You must set Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL }'
+          end
         end
 
     end

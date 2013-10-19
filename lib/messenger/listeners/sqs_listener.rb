@@ -1,3 +1,4 @@
+require 'uri'
 require 'aws-sdk'
 
 class Messenger
@@ -42,6 +43,7 @@ class Messenger
           messages = receive_messages
           messages.each do |message|
             break unless enough_time_remaining
+
             submit_message message
           end unless messages.empty?
 
@@ -80,8 +82,9 @@ class Messenger
         end
 
         def ensure_valid_queue_url
-          if self.class.config.queue_url.to_s.empty?
-            raise MissingConfigurationParameterError.new 'You must set Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL }'
+          uri = URI.parse self.class.config.queue_url.to_s
+          unless uri.instance_of? URI::HTTPS
+            raise MissingConfigurationParameterError.new 'You must set Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL } to a valid https URI'
           end
         end
 

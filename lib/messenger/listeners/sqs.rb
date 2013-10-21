@@ -1,5 +1,6 @@
 require 'uri'
 require 'aws-sdk'
+require 'messenger/listeners/sqs/timer'
 
 class Messenger
   module Listeners
@@ -41,13 +42,17 @@ class Messenger
         # poll SQS once.
         begin
           messages = receive_messages
+          timer = Timer.new
+
+          timer.start
+
           messages.each do |message|
-            break unless enough_time_remaining
+            break unless timer.enough_time_remaining?
 
             submit_message message
           end unless messages.empty?
 
-          reset_timestamps
+          timer.reset
         end while @listening
       end
 
@@ -86,41 +91,6 @@ class Messenger
           unless uri.instance_of? URI::HTTPS
             raise MissingConfigurationParameterError.new 'You must set Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL } to a valid https URI'
           end
-        end
-
-        # Determine if there is enough time remaining in the `visibility_timeout` to
-        # process the next message.
-        #
-        def enough_time_remaining
-          now = Time.now
-          setup_timestamps now
-
-          current_elapsed_time = now - @finished_last_message_at
-          @longest_elapsed_time = (current_elapsed_time > @longest_elapsed_time) ? current_elapsed_time : @longest_elapsed_time
-
-          # Setup for next time
-          @finished_last_message_at = now
-
-          time_remaining = self.class.config.visibility_timeout - (now - @started_at)
-          enough_time_remaining = time_remaining > @longest_elapsed_time
-
-          enough_time_remaining
-        end
-
-        # Set neccessary timestamps if they have not been set yet.
-        #
-        def setup_timestamps(now)
-          @started_at ||= now
-          @finished_last_message_at ||= now
-          @longest_elapsed_time ||= 0
-        end
-
-        # Reset the timestamps for the next batch of messages.
-        #
-        def reset_timestamps
-          @started_at = nil
-          @finished_last_message_at = nil
-          @longest_elapsed_time = nil
         end
 
     end

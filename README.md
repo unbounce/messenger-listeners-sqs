@@ -26,7 +26,7 @@ queue url and any other options.
   ```Ruby
   # Example config/initializers/messenger-listeners-sqs.rb
 
-  Messenger::Listeners::SqsListener.configure do |config|
+  Messenger::Listeners::Sqs.configure do |config|
     config.queue_url = 'https://some-sqs-queue-url'
     # config.batch_size = 10
     # config.visibility_timeout = 10

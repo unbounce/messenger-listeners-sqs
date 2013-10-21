@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'messenger/listeners/sqs_listener/version'
+require 'messenger/listeners/sqs/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'messenger-listeners-sqs'
-  spec.version       = Messenger::Listeners::SqsListener::VERSION
+  spec.version       = Messenger::Listeners::Sqs::VERSION
   spec.platform      = Gem::Platform::RUBY
   spec.authors       = ["James Brennan"]
   spec.email         = ["james@jamesbrennan.ca"]

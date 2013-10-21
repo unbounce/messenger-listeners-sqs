@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe Messenger::Listeners::SqsListener do
+describe Messenger::Listeners::Sqs do
 
   QUEUE_URL = 'https://sqs.us-west-1.amazonaws.com/002682819933/poller-test'
 
   describe 'configure' do
     it 'should require a block' do
-      expect { Messenger::Listeners::SqsListener.configure }.to raise_error LocalJumpError
+      expect { Messenger::Listeners::Sqs.configure }.to raise_error LocalJumpError
     end
   end
 
   describe 'listen' do
-    let(:listener) { Messenger::Listeners::SqsListener.new }
+    let(:listener) { Messenger::Listeners::Sqs.new }
 
     before do
       # Poll only once
@@ -20,7 +20,7 @@ describe Messenger::Listeners::SqsListener do
 
     context 'with queue url' do
       before do
-        Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL }
+        Messenger::Listeners::Sqs.configure { |config| config.queue_url = QUEUE_URL }
         listener.worker = Messenger::Workers::TestWorker.new
       end
 
@@ -35,7 +35,7 @@ describe Messenger::Listeners::SqsListener do
 
     context 'without valid worker' do
       before do
-        Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL }
+        Messenger::Listeners::Sqs.configure { |config| config.queue_url = QUEUE_URL }
       end
 
       it 'should raise error' do
@@ -47,7 +47,7 @@ describe Messenger::Listeners::SqsListener do
 
     context 'without queue url' do
       before do
-        Messenger::Listeners::SqsListener.configure { |config| config.queue_url = nil }
+        Messenger::Listeners::Sqs.configure { |config| config.queue_url = nil }
         listener.worker = Messenger::Workers::TestWorker.new
       end
 

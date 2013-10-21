@@ -1,8 +1,8 @@
 require 'rails/generators'
 
-module Messenger
+class Messenger
   module Listeners
-    module SqsListener
+    class Sqs
       module Generators
         class InstallGenerator < Rails::Generators::Base
           desc "Installs Messenger's initializer"

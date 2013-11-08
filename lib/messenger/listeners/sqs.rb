@@ -67,6 +67,8 @@ class Messenger
                                             wait_time_seconds:      self.class.config.wait_time
                                           })
           response.messages
+        rescue Timeout::Error
+          []
         end
 
         def submit_message(message)

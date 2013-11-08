@@ -61,12 +61,16 @@ class Messenger
         def receive_messages
           ensure_valid_queue_url
 
-          response = @sqs.receive_message({ queue_url:              self.class.config.queue_url,
-                                            max_number_of_messages: self.class.config.batch_size,
-                                            visibility_timeout:     self.class.config.visibility_timeout,
-                                            wait_time_seconds:      self.class.config.wait_time
-                                          })
-          response.messages
+          begin
+            response = @sqs.receive_message({ queue_url:              self.class.config.queue_url,
+                                              max_number_of_messages: self.class.config.batch_size,
+                                              visibility_timeout:     self.class.config.visibility_timeout,
+                                              wait_time_seconds:      self.class.config.wait_time
+                                            })
+            response.messages
+          rescue Timeout::Error
+            []
+          end
         end
 
         def submit_message(message)

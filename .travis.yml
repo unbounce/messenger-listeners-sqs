@@ -1,0 +1,8 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.2.2
+sudo: false
+bundler_args: --without development integration production
+script:
+- bundle exec rspec spec

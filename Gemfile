@@ -4,5 +4,5 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'messenger', '~> 0.0.1', git: 'git@github.com:unbounce/messenger.git'
+  gem 'messenger', '~> 0.0.1', git: 'git://github.com/unbounce/messenger.git'
 end

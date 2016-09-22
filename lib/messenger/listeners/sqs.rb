@@ -73,19 +73,12 @@ class Messenger
 
         def submit_message(message)
           ensure_valid_worker
-
-          # Update this message's visibility so it doesn't expire while we're working on it.
-          @sqs.change_message_visibility({ queue_url:          self.class.config.queue_url,
-                                           receipt_handle:     message.receipt_handle,
-                                           visibility_timeout: self.class.config.visibility_timeout
-                                         })
-
-          @worker.work message.body
-
-          # Remove the message now that we're done.
           @sqs.delete_message({ queue_url:      self.class.config.queue_url,
                                 receipt_handle: message.receipt_handle
                               })
+          # we should be handling unix signals here, in case a deployment tries to kill the process before the worker finishes its work
+          @worker.work message.body
+        rescue AWS::SQS::Errors::InvalidParameterValue, AWS::SQS::Errors::RequestExpired, AWS::SQS::Errors::ServiceUnavailable
         end
 
         def ensure_valid_queue_url
@@ -94,7 +87,6 @@ class Messenger
             raise MissingConfigurationParameterError.new 'You must set Messenger::Listeners::SqsListener.configure { |config| config.queue_url = QUEUE_URL } to a valid https URI'
           end
         end
-
     end
   end
 end

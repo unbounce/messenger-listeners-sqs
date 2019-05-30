@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Messenger::Listeners::Sqs do
 
-  QUEUE_URL = 'https://sqs.us-west-1.amazonaws.com/002682819933/poller-test'
+  QUEUE_URL = 'https://sqs.us-west-1.amazonaws.com/001234567890/poller-test'
 
   describe 'configure' do
     it 'should require a block' do

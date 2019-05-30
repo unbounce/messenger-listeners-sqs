@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sqs.us-west-1.amazonaws.com/002682819933/poller-test
+    uri: https://sqs.us-west-1.amazonaws.com/001234567890/poller-test
     body:
       encoding: US-ASCII
-      string: Action=ReceiveMessage&MaxNumberOfMessages=10&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F002682819933%2Fpoller-test&Timestamp=2013-10-18T21%3A02%3A06Z&Version=2012-11-05&VisibilityTimeout=10&WaitTimeSeconds=20
+      string: Action=ReceiveMessage&MaxNumberOfMessages=10&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F001234567890%2Fpoller-test&Timestamp=2013-10-18T21%3A02%3A06Z&Version=2012-11-05&VisibilityTimeout=10&WaitTimeSeconds=20
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
@@ -55,10 +55,10 @@ http_interactions:
   recorded_at: Fri, 18 Oct 2013 21:02:08 GMT
 - request:
     method: post
-    uri: https://sqs.us-west-1.amazonaws.com/002682819933/poller-test
+    uri: https://sqs.us-west-1.amazonaws.com/001234567890/poller-test
     body:
       encoding: US-ASCII
-      string: Action=ChangeMessageVisibility&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F002682819933%2Fpoller-test&ReceiptHandle=E1YD3g9WPkc%2BdE7BJ10vnXXn5DlEPJ%2FmXXrR2j%2B80qHnitCZbm%2BVf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk%2BYMlQ0WsqrtVMcmpmJiE%2Fv4v8%2Bx42c9fcm9dydsmEyWGPmrSpOADT8A01D9a%2Bc45duGLm0l3XvXHQv2o%2FvhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX%2Bq31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml%2FNDgsrj5BVI3eFFcISI%2Bl7VJ8w8eDJFsSqccfzY%3D&Timestamp=2013-10-18T21%3A02%3A09Z&Version=2012-11-05&VisibilityTimeout=10
+      string: Action=ChangeMessageVisibility&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F001234567890%2Fpoller-test&ReceiptHandle=E1YD3g9WPkc%2BdE7BJ10vnXXn5DlEPJ%2FmXXrR2j%2B80qHnitCZbm%2BVf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk%2BYMlQ0WsqrtVMcmpmJiE%2Fv4v8%2Bx42c9fcm9dydsmEyWGPmrSpOADT8A01D9a%2Bc45duGLm0l3XvXHQv2o%2FvhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX%2Bq31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml%2FNDgsrj5BVI3eFFcISI%2Bl7VJ8w8eDJFsSqccfzY%3D&Timestamp=2013-10-18T21%3A02%3A09Z&Version=2012-11-05&VisibilityTimeout=10
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
@@ -102,10 +102,10 @@ http_interactions:
   recorded_at: Fri, 18 Oct 2013 21:02:09 GMT
 - request:
     method: post
-    uri: https://sqs.us-west-1.amazonaws.com/002682819933/poller-test
+    uri: https://sqs.us-west-1.amazonaws.com/001234567890/poller-test
     body:
       encoding: US-ASCII
-      string: Action=DeleteMessage&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F002682819933%2Fpoller-test&ReceiptHandle=E1YD3g9WPkc%2BdE7BJ10vnXXn5DlEPJ%2FmXXrR2j%2B80qHnitCZbm%2BVf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk%2BYMlQ0WsqrtVMcmpmJiE%2Fv4v8%2Bx42c9fcm9dydsmEyWGPmrSpOADT8A01D9a%2Bc45duGLm0l3XvXHQv2o%2FvhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX%2Bq31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml%2FNDgsrj5BVI3eFFcISI%2Bl7VJ8w8eDJFsSqccfzY%3D&Timestamp=2013-10-18T21%3A02%3A09Z&Version=2012-11-05
+      string: Action=DeleteMessage&QueueUrl=https%3A%2F%2Fsqs.us-west-1.amazonaws.com%2F001234567890%2Fpoller-test&ReceiptHandle=E1YD3g9WPkc%2BdE7BJ10vnXXn5DlEPJ%2FmXXrR2j%2B80qHnitCZbm%2BVf1O6UJ8lMjnjx30ZjoJmwTCMsHO1ExMVVmlq6fk%2BYMlQ0WsqrtVMcmpmJiE%2Fv4v8%2Bx42c9fcm9dydsmEyWGPmrSpOADT8A01D9a%2Bc45duGLm0l3XvXHQv2o%2FvhgG2m3zPJzvLp1FkX0d5LlXYdrPiiIH9QYW0ZYX%2Bq31wbZmzT5JVtkxigpbYYKREzCBvesrDO3qoB5VSnrUGwml%2FNDgsrj5BVI3eFFcISI%2Bl7VJ8w8eDJFsSqccfzY%3D&Timestamp=2013-10-18T21%3A02%3A09Z&Version=2012-11-05
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8

@@ -16,7 +16,7 @@ class Messenger
       def initialize
         self.class.configure {} if self.class.config.nil?
 
-        @sqs = AWS::SQS::Client.new
+        @sqs = Aws::SQS::Client.new
         @listening = true
       end
 
@@ -78,7 +78,7 @@ class Messenger
                               })
           # we should be handling unix signals here, in case a deployment tries to kill the process before the worker finishes its work
           @worker.work message.body
-        rescue AWS::SQS::Errors::InvalidParameterValue, AWS::SQS::Errors::RequestExpired, AWS::SQS::Errors::ServiceUnavailable
+        rescue Aws::SQS::Errors::InvalidParameterValue, Aws::SQS::Errors::RequestExpired, Aws::SQS::Errors::ServiceUnavailable
         end
 
         def ensure_valid_queue_url

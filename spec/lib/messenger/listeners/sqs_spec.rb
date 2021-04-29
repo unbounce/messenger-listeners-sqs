@@ -69,22 +69,22 @@ describe Messenger::Listeners::Sqs do
     before { expect(client).to receive(:delete_message).and_raise(error) }
     before { expect(worker).to_not receive(:work) }
 
-    context 'AWS::SQS::Errors::InvalidParameterValue exception' do
-      let(:error) { AWS::SQS::Errors::InvalidParameterValue }
+    context 'Aws::SQS::Errors::InvalidParameterValue exception' do
+      let(:error) { Aws::SQS::Errors::InvalidParameterValue }
       it 'should not raise an error' do
         expect(listener.send(:submit_message, message)).to be_nil
       end
     end
 
-    context 'AWS::SQS::Errors::InvalidParameterValue exception' do
-      let(:error) { AWS::SQS::Errors::RequestExpired }
+    context 'Aws::SQS::Errors::InvalidParameterValue exception' do
+      let(:error) { Aws::SQS::Errors::RequestExpired }
       it 'should not raise an error' do
         expect(listener.send(:submit_message, message)).to be_nil
       end
     end
 
-    context 'AWS::SQS::Errors::InvalidParameterValue exception' do
-      let(:error) { AWS::SQS::Errors::ServiceUnavailable }
+    context 'Aws::SQS::Errors::InvalidParameterValue exception' do
+      let(:error) { Aws::SQS::Errors::ServiceUnavailable }
       it 'should not raise an error' do
         expect(listener.send(:submit_message, message)).to be_nil
       end
